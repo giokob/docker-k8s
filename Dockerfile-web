@@ -1,0 +1,10 @@
+FROM node:13-alpine
+
+WORKDIR /web
+COPY web .
+RUN npm install --yes
+
+CMD ["npm", "start"]
+
+
+

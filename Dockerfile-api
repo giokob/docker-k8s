@@ -1,0 +1,10 @@
+FROM node:13-alpine
+
+WORKDIR /api
+COPY api .
+RUN npm install --yes
+
+CMD ["npm", "start"]
+
+
+
