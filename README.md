@@ -6,8 +6,7 @@ docker image build -f Dockerfile-web -t web .
 kubectl apply -f deploy/
 minikube service list
 
-kubectl delete all --all
-
 kubectl apply -k deploy/base
 kubectl apply -k deploy/overlays/stage
 
+kubectl delete all --all
