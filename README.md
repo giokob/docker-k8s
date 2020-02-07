@@ -4,9 +4,10 @@ docker image build -f Dockerfile-api -t api .
 docker image build -f Dockerfile-web -t web .
 
 kubectl apply -f deploy/
-minikube service web
+minikube service list
 
 kubectl delete all --all
 
-----
-kustomize
+kubectl apply -k deploy/base
+kubectl apply -k deploy/overlays/stage
+
