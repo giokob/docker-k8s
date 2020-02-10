@@ -8,3 +8,5 @@ resources:
   - service-api.yaml
   - service-postgres.yaml
   - service-web.yaml
+  - postgres-configmap.yaml
+  - postgres-storage.yaml

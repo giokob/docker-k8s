@@ -18,20 +18,20 @@ spec:
           imagePullPolicy: "IfNotPresent"
           ports:
             - containerPort: 5432
-          env:
-            - name: POSTGRES_DB
-              value: "apidb"
-            - name: POSTGRES_USER
-              value: "apiuser"
-            - name: POSTGRES_PASSWORD
-              value: "apipass"
-          # envFrom:
-          #   - configMapRef:
-          #       name: postgres-config
-          # volumeMounts:
-          #   - mountPath: /var/lib/postgresql/data
-          #     name: postgredb
-      # volumes:
-      #   - name: postgredb
-      #     persistentVolumeClaim:
-      #       claimName: postgres-pv-claim
+          # env:
+          #   - name: POSTGRES_DB
+          #     value: "apidb"
+          #   - name: POSTGRES_USER
+          #     value: "apiuser"
+          #   - name: POSTGRES_PASSWORD
+          #     value: "apipass"
+          envFrom:
+            - configMapRef:
+                name: postgres-config
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgredb
+      volumes:
+        - name: postgredb
+          persistentVolumeClaim:
+            claimName: postgres-pv-claim
